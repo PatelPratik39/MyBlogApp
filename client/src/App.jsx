@@ -1,10 +1,13 @@
-import "./App.css";
+// import "./App.css";
+
+import Login from "./components/accounts/Login";
 
 function App() {
   return (
     <>
-      <div>
-        <h1> Hello Bloggers !!👋🏻</h1>
+      <div style={{marginTop:'160px'}}>
+        {/* <h1> Hello Bloggers !!👋🏻</h1> */}
+        <Login />
       </div>
     </>
   );

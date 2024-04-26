@@ -46,15 +46,29 @@ const SignupButton = styled(Button)`
 `;
 // Typography
 const Text = styled(Typography)`
-  color: '#878787';
+  color: "#878787";
   font-size: 14px;
 `;
 
+// to solve field errors
+const signupInitialValues = {
+  name: "",
+  username: "",
+  password: ""
+};
+
 const Login = () => {
   const [account, setAccount] = useState("login");
+  const [signup, setSignup] = useState(signupInitialValues);
+//   const [login, setLogin] = useState(loginInitialvalues);
 
   const toggleSignup = () => {
     account === "signup" ? setAccount("login") : setAccount("signup");
+  };
+
+  const onInputChange = (e) => {
+    e.preventDefault();
+    setSignup({ ...signup, [e.target.name]: e.target.value });
   };
   return (
     <>
@@ -64,14 +78,16 @@ const Login = () => {
           {account === "login" ? (
             <Wrapper>
               <TextField
-                id="outlined-basic"
+                onChange={(e) => onInputChange(e)}
                 label="Username"
+                name="username"
                 variant="standard"
               />
 
               <TextField
-                id="outlined-basic"
+                onChange={(e) => onInputChange(e)}
                 label="Password"
+                name="password"
                 variant="standard"
               />
 
@@ -87,32 +103,36 @@ const Login = () => {
           ) : (
             <Wrapper>
               <TextField
-                id="outlined-basic"
                 label="First Name"
+                name="firstName"
                 variant="standard"
+                onChange={(e) => onInputChange(e)}
               />
               <TextField
-                id="outlined-basic"
                 label="Last Name"
+                name="lastName"
                 variant="standard"
+                onChange={(e) => onInputChange(e)}
               />
               <TextField
-                id="outlined-basic"
                 label="Username"
+                name="username"
                 variant="standard"
+                onChange={(e) => onInputChange(e)}
               />
-
               <TextField
-                id="outlined-basic"
                 label="Password"
+                name="password"
                 variant="standard"
+                onChange={(e) => onInputChange(e)}
               />
 
               <LoginButton variant="contained">SignUp</LoginButton>
-              <Text style={{ textAlign: "center" }}> Already an Account? </Text>
-              <SignupButton onClick={() => toggleSignup()}>
-               Login
-              </SignupButton>
+              <Text style={{ textAlign: "center" }}>
+                {" "}
+                Already have an Account?{" "}
+              </Text>
+              <SignupButton onClick={() => toggleSignup()}>Login</SignupButton>
             </Wrapper>
           )}
         </Box>

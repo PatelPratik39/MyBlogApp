@@ -52,7 +52,8 @@ const Text = styled(Typography)`
 
 // to solve field errors
 const signupInitialValues = {
-  name: "",
+  firstName: "",
+  lastName: "",
   username: "",
   password: ""
 };
@@ -60,7 +61,7 @@ const signupInitialValues = {
 const Login = () => {
   const [account, setAccount] = useState("login");
   const [signup, setSignup] = useState(signupInitialValues);
-//   const [login, setLogin] = useState(loginInitialvalues);
+  //   const [login, setLogin] = useState(loginInitialvalues);
 
   const toggleSignup = () => {
     account === "signup" ? setAccount("login") : setAccount("signup");

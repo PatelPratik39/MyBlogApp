@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div style={{marginTop:'160px'}}>
-        {/* <h1> Hello Bloggers !!👋🏻</h1> */}
+        <h1 style={{textAlign: 'center'}}> Hello Bloggers !!👋🏻</h1>
         <Login />
       </div>
     </>

@@ -3,7 +3,7 @@ import { Box, Button, TextField, Typography, styled } from "@mui/material";
 import image from "../../assets/blogzz.png";
 import { useState } from "react";
 // import "./Login.css";
-import { signupUser } from '../../../../server/controller/user-controller';
+
 
 // div
 const Component = styled(Box)`
@@ -37,7 +37,7 @@ const LoginButton = styled(Button)`
   height: 48px;
   border-radius: 10px;
   box-shadow: 0 2px 4px 0;
-  ${'' /* box-shadow: 0 8px 8px 0 rgb(0 0 0/ 20%); */}
+  ${"" /* box-shadow: 0 8px 8px 0 rgb(0 0 0/ 20%); */}
 `;
 // Signup Button
 const SignupButton = styled(Button)`
@@ -51,6 +51,13 @@ const Text = styled(Typography)`
   color: "#878787";
   font-size: 14px;
 `;
+const Error = styled(Typography)`
+  font-size: 10px;
+  color: #ff6161;
+  line-height: 0;
+  margin-top: 10px;
+  font-weight: 600;
+`;
 
 // to solve field errors
 const signupInitialValues = {
@@ -63,7 +70,7 @@ const signupInitialValues = {
 const Login = () => {
   const [account, setAccount] = useState("login");
   const [signup, setSignup] = useState(signupInitialValues);
-  //   const [login, setLogin] = useState(loginInitialvalues);
+  const [error, setError] = useState("");
 
   const toggleSignup = () => {
     account === "signup" ? setAccount("login") : setAccount("signup");
@@ -73,7 +80,9 @@ const Login = () => {
     e.preventDefault();
     setSignup({ ...signup, [e.target.name]: e.target.value });
   };
-  const signupUser = () => {};
+  const signupUser = async () => {
+
+  };
   return (
     <>
       <Component>
@@ -130,8 +139,10 @@ const Login = () => {
                 variant="standard"
                 onChange={(e) => onInputChange(e)}
               />
-
-              <SignupButton variant="contained" onClick={() => signupUser()}>SignUp</SignupButton>
+              {error && <Error>{error}</Error>}
+              <SignupButton variant="contained" onClick={() => signupUser()}>
+                SignUp
+              </SignupButton>
               <Text style={{ textAlign: "center" }}>
                 {" "}
                 Already have an Account?{" "}

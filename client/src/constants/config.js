@@ -1,6 +1,6 @@
 // API notification messages
 
-export const API_NOTIFICATION_MESSAGE = {
+export const API_NOTIFICATION_MESSAGES = {
   loading: {
     title: "Loading.....",
     message: "Data is being loaded, Please Wait"
@@ -20,13 +20,14 @@ export const API_NOTIFICATION_MESSAGE = {
   },
   networkError: {
     title: "Network Error",
-    message: "Unable to connect with the server. Please check Internet connectivity and try again!!"
+    message:
+      "Unable to connect with the server. Please check Internet connectivity and try again!!"
   }
 };
 
-
 // API SERVICE CALL
-
+// Smaple Request
+// Need service call : { url : '/', method: 'POST/GET/PUT/DELETE' params: true/false; query: true/false}
 export const SERVICE_URLS = {
-    userSignuo: {url:'/signup', method: 'POST'}
-}
+  userSignup: { url: "/signup", method: "POST" }
+};

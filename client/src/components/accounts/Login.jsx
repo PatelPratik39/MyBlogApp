@@ -3,6 +3,7 @@ import { Box, Button, TextField, Typography, styled } from "@mui/material";
 import image from "../../assets/blogzz.png";
 import { useState } from "react";
 // import "./Login.css";
+import { signupUser } from '../../../../server/controller/user-controller';
 
 // div
 const Component = styled(Box)`
@@ -35,7 +36,8 @@ const LoginButton = styled(Button)`
   text-transform: none;
   height: 48px;
   border-radius: 10px;
-  box-shadow: 0 8px 8px 0 rgb(0 0 0/ 20%);
+  box-shadow: 0 2px 4px 0;
+  ${'' /* box-shadow: 0 8px 8px 0 rgb(0 0 0/ 20%); */}
 `;
 // Signup Button
 const SignupButton = styled(Button)`
@@ -71,6 +73,7 @@ const Login = () => {
     e.preventDefault();
     setSignup({ ...signup, [e.target.name]: e.target.value });
   };
+  const signupUser = () => {};
   return (
     <>
       <Component>
@@ -128,12 +131,12 @@ const Login = () => {
                 onChange={(e) => onInputChange(e)}
               />
 
-              <LoginButton variant="contained">SignUp</LoginButton>
+              <SignupButton variant="contained" onClick={() => signupUser()}>SignUp</SignupButton>
               <Text style={{ textAlign: "center" }}>
                 {" "}
                 Already have an Account?{" "}
               </Text>
-              <SignupButton onClick={() => toggleSignup()}>Login</SignupButton>
+              <LoginButton onClick={() => toggleSignup()}>Login</LoginButton>
             </Wrapper>
           )}
         </Box>
